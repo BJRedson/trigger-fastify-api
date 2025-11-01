@@ -1,32 +1,26 @@
 {
   "name": "trigger-fastify-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "workspaces": [
-    "apps/api",
-    "apps/triggers"
-  ],
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev:api": "tsx apps/api/src/index.ts",
-    "dev:triggers": "trigger.dev dev --cwd apps/triggers",
-    "dev": "concurrently -n api,triggers \"npm:dev:api\" \"npm:dev:triggers\"",
-    "build": "pnpm -r build"
-  },
-  "keywords": [],
-  "author": "Edson Barbosa Junior <bjr.edson@gmail.com>",
-  "license": "ISC",
-  "packageManager": "pnpm@10.12.4",
-  "devDependencies": {
-    "@types/node": "^24.9.2",
-    "concurrently": "^9.2.1",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "dev:api": "tsx apps/src/api/index.ts",
+    "dev:triggers": "pnpm dlx trigger.dev@latest dev",
+    "dev": "concurrently -n api,triggers \"pnpm:dev:api\" \"pnpm:dev:triggers\"",
+    "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@trigger.dev/sdk": "^4.0.5",
-    "fastify": "^5.6.1",
-    "pino": "^10.1.0",
-    "zod": "^4.1.12"
+    "@trigger.dev/sdk": "^4",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "fastify-type-provider-zod": "^6.1.0",
+    "pino": "^9.5.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "concurrently": "^9.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
   }
 }

@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "outDir": "dist",
+    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true
+    "skipLibCheck": true
   },
-  "include": ["apps"]
+  "include": ["src", "trigger.config.ts"]
 }

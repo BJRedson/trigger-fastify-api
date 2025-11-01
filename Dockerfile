@@ -1,8 +1,16 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY apps/api ./apps/api
-RUN npm -w apps/api run build
+
+# deps
+COPY package.json pnpm-lock.yaml* ./
+RUN corepack enable && pnpm install --frozen-lockfile
+
+# fonte
+COPY tsconfig.json trigger.config.ts ./
+COPY src ./src
+
+# build só se quiser compilar (aqui rodamos tsx em dev)
+# RUN pnpm build
+
 EXPOSE 3333
-CMD ["node", "apps/api/dist/index.js"]
+CMD ["pnpm", "dev:api"]
