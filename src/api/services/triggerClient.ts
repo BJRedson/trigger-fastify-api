@@ -1,7 +1,7 @@
 export async function triggerProcessMessage(payload: {
   message: string; correlationId?: string;
 }) {
-  const { processMessage } = await import("../../triggers/processMessage.task");
+  const { processMessage } = await import("../../triggers/processMessage.task.js");
   const run = await processMessage.trigger(payload);
   return { runId: run.id };
 }
