@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev:api": "tsx apps/src/api/index.ts",
+    "dev:api": "tsx src/api/index.ts",
     "dev:triggers": "pnpm dlx trigger.dev@latest dev",
     "dev": "concurrently -n api,triggers \"pnpm:dev:api\" \"pnpm:dev:triggers\"",
     "build": "tsc -p tsconfig.json"
