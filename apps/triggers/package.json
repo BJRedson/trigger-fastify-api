@@ -1,9 +1,0 @@
-{
-  "name": "triggers",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "trigger.dev dev",
-    "build": "tsc -p tsconfig.json"
-  }
-}

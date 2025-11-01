@@ -1,9 +1,0 @@
-{
-  "name": "api",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "tsx src/index.ts",
-    "build": "tsc -p tsconfig.json"
-  }
-}

@@ -4,12 +4,16 @@ export const processMessage = task({
   id: "process-message",
   run: async (payload: { message: string; correlationId?: string }, io) => {
     console.info("Start", payload);
-    await wait.for({ seconds: 5 }); // simula trabalho (pausas são gerenciadas pelo Run Engine)
+
+    // Simula trabalho assíncrono
+    await wait.for({ seconds: 5 });
+
     const output = {
       uppercased: payload.message.toUpperCase(),
-      reversed: payload.message.split("").reverse().join(""),
+      reversed: payload.message.split("").reverse().join("")
     };
+
     console.info("Done", { output });
-    return output; // ficará disponível em runs.retrieve(runId).output
-  },
+    return output; // ficará acessível via runs.retrieve
+  }
 });
