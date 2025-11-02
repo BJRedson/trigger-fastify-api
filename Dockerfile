@@ -38,7 +38,7 @@ COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 
 EXPOSE 3333
-HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
-  CMD wget -qO- http://127.0.0.1:${PORT:-3333}/health || exit 1
+# HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
+#   CMD wget -qO- http://127.0.0.1:${PORT:-3333}/health || exit 1
 
 CMD ["node", "dist/api/index.js"]
